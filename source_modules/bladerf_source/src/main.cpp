@@ -364,8 +364,8 @@ private:
         if (_this->bufferSize < 1024) { _this->bufferSize = 1024; }
 
         bladerf_expansion_attach(_this->openDev, BLADERF_XB_200);
-        bladerf_xb200_set_filterbank(dev, BLADERF_MODULE_RX, BLADERF_XB200_CUSTOM);
-        bladerf_xb200_set_path(dev, BLADERF_MODULE_RX, BLADERF_XB200_MIX);
+        bladerf_xb200_set_filterbank_this->openDev, BLADERF_MODULE_RX, BLADERF_XB200_CUSTOM);
+        bladerf_xb200_set_path(_this->openDev, BLADERF_MODULE_RX, BLADERF_XB200_MIX);
 
         
         // Setup device parameters
