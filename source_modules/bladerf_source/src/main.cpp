@@ -363,6 +363,11 @@ private:
         _this->bufferSize *= 1024;
         if (_this->bufferSize < 1024) { _this->bufferSize = 1024; }
 
+        bladerf_expansion_attach(_this->openDev, BLADERF_XB_200);
+        bladerf_xb200_set_filterbank(dev, BLADERF_MODULE_RX, BLADERF_XB200_CUSTOM);
+        bladerf_xb200_set_path(dev, BLADERF_MODULE_RX, BLADERF_XB200_MIX);
+
+        
         // Setup device parameters
         bladerf_set_sample_rate(_this->openDev, BLADERF_CHANNEL_RX(_this->chanId), _this->sampleRate, NULL);
         bladerf_set_frequency(_this->openDev, BLADERF_CHANNEL_RX(_this->chanId), _this->freq);
