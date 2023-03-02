@@ -363,8 +363,20 @@ private:
         _this->bufferSize *= 1024;
         if (_this->bufferSize < 1024) { _this->bufferSize = 1024; }
 
+        // XB200 configuration
         bladerf_expansion_attach(_this->openDev, BLADERF_XB_200);
-        bladerf_xb200_set_filterbank_this->openDev, BLADERF_MODULE_RX, BLADERF_XB200_CUSTOM);
+        
+        
+        bladerf_xb200_set_filterbank(_this->openDev, BLADERF_MODULE_RX, BLADERF_XB200_CUSTOM);
+        /*  BLADERF_XB200_50M = 0 , 
+            BLADERF_XB200_144M , 
+            BLADERF_XB200_222M , 
+            BLADERF_XB200_CUSTOM ,
+            BLADERF_XB200_AUTO_1DB , 
+            BLADERF_XB200_AUTO_3DB
+        */
+        
+        // BLADERF_XB200_BYPASS = 0 , BLADERF_XB200_MIX 
         bladerf_xb200_set_path(_this->openDev, BLADERF_MODULE_RX, BLADERF_XB200_MIX);
 
         
